@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Poster Promosi Toko ATK</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #3498db;
+      --secondary-color: #2ecc71;
+      --accent-color: #e74c3c;
+    }
+    
+    body {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+    }
+    
+    .poster-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .header {
+      background: linear-gradient(90deg, var(--primary-color) 0%, #2980b9 100%);
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+    
+    .header h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .header p {
+      font-size: 1.5rem;
+      margin-bottom: 0;
+      opacity: 0.9;
+    }
+    
+    .promo-banner {
+      background-color: var(--accent-color);
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    
+    .product-section {
+      padding: 40px 20px;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+      color: var(--primary-color);
+      font-weight: 700;
+      font-size: 2.2rem;
+    }
+    
+    .product-card {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin-bottom: 30px;
+      height: 100%;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    }
+    
+    .product-image {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 15px;
+    }
+    
+    .product-info {
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .product-name {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+    
+    .product-price {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent-color);
+      margin-bottom: 15px;
+    }
+    
+    .product-price .old-price {
+      font-size: 1rem;
+      color: #7f8c8d;
+      text-decoration: line-through;
+      margin-right: 10px;
+    }
+    
+    .btn-buy {
+      background-color: var(--secondary-color);
+      color: white;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    
+    .btn-buy:hover {
+      background-color: #27ae60;
+      transform: scale(1.05);
+    }
+    
+    .features-section {
+      background-color: #f8f9fa;
+      padding: 40px 20px;
+    }
+    
+    .feature-item {
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .feature-icon {
+      font-size: 3rem;
+      color: var(--primary-color);
+      margin-bottom: 15px;
+    }
+    
+    .feature-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #2c3e50;
+    }
+    
+    .cta-section {
+      background: linear-gradient(90deg, var(--secondary-color) 0%, #27ae60 100%);
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+    }
+    
+    .cta-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+    
+    .cta-button {
+      background-color: white;
+      color: var(--secondary-color);
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      border-radius: 50px;
+      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .cta-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .footer {
+      background-color: #2c3e50;
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    
+    .contact-info {
+      margin-bottom: 20px;
+    }
+    
+    .social-icons a {
+      color: white;
+      font-size: 1.5rem;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+    
+    .social-icons a:hover {
+      color: var(--primary-color);
+    }
+    
+    /* Modal Styling */
+    .modal-content {
+      border-radius: 15px;
+      border: none;
+    }
+    
+    .modal-header {
+      background: linear-gradient(90deg, var(--primary-color) 0%, #2980b9 100%);
+      color: white;
+      border-bottom: none;
+    }
+    
+    .modal-title {
+      font-weight: 700;
+    }
+    
+    .btn-close {
+      filter: invert(1);
+    }
+    
+    .modal-footer {
+      border-top: none;
+    }
+    
+    /* Placeholder untuk gambar produk */
+    .product-1 { 
+      background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                       url('pensil mekanik premium.png'); 
+    }
+    .product-2 { 
+      background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                       url('pulpen gel warna warni.png'); 
+    }
+    .product-3 { 
+      background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                       url('buku catatan kreatif.png'); 
+    }
+    .product-4 { 
+      background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                       url('stabilo marker set.png'); 
+    }
+    .product-5 { 
+      background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                       url('pensil warna 24 set.png'); 
+    }
+    .product-6 { 
+      background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                       url('map plastik berbagai ukuran.png'); 
+    }
+  </style>
+</head>
+<body>
+  <div class="poster-container">
+    <!-- Header -->
+    <div class="header">
+      <h1>TOKO ATK CEMERLANG</h1>
+      <p>Kebutuhan Alat Tulis Kantor Terlengkap dengan Harga Terjangkau</p>
+    </div>
+    
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+      <i class="fas fa-tag me-2"></i> DISKON HINGGA 30% UNTUK PEMBELIAN DI ATAS Rp 200.000
+    </div>
+    
+    <!-- Produk Unggulan -->
+    <div class="product-section">
+      <h2 class="section-title">PRODUK UNGGULAN KAMI</h2>
+      
+      <div class="container">
+        <div class="row">
+          <!-- Produk 1 -->
+          <div class="col-md-4">
+            <div class="card product-card">
+              <div class="product-image product-1">
+                <span class="badge bg-danger">HOT</span>
+              </div>
+              <div class="product-info">
+                <div class="product-name">Pensil Mekanik Premium</div>
+                <div class="product-price">
+                  <span class="old-price">Rp 25.000</span>
+                  Rp 18.000
+                </div>
+                <button class="btn btn-buy" data-bs-toggle="modal" data-bs-target="#orderModal" data-product="Pensil Mekanik Premium" data-price="18000">
+                  <i class="fas fa-shopping-cart me-1"></i> Beli Sekarang
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Produk 2 -->
+          <div class="col-md-4">
+            <div class="card product-card">
+              <div class="product-image product-2">
+                <span class="badge bg-success">BARU</span>
+              </div>
+              <div class="product-info">
+                <div class="product-name">Pulpen Gel Warna-Warni</div>
+                <div class="product-price">
+                  <span class="old-price">Rp 35.000</span>
+                  Rp 25.000
+                </div>
+                <button class="btn btn-buy" data-bs-toggle="modal" data-bs-target="#orderModal" data-product="Pulpen Gel Warna-Warni" data-price="25000">
+                  <i class="fas fa-shopping-cart me-1"></i> Beli Sekarang
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Produk 3 -->
+          <div class="col-md-4">
+            <div class="card product-card">
+              <div class="product-image product-3">
+                <span class="badge bg-warning">TERLARIS</span>
+              </div>
+              <div class="product-info">
+                <div class="product-name">Buku Catatan Kreatif</div>
+                <div class="product-price">
+                  <span class="old-price">Rp 45.000</span>
+                  Rp 32.000
+                </div>
+                <button class="btn btn-buy" data-bs-toggle="modal" data-bs-target="#orderModal" data-product="Buku Catatan Kreatif" data-price="32000">
+                  <i class="fas fa-shopping-cart me-1"></i> Beli Sekarang
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Produk 4 -->
+          <div class="col-md-4">
+            <div class="card product-card">
+              <div class="product-image product-4">
+                <span class="badge bg-info">PROMO</span>
+              </div>
+              <div class="product-info">
+                <div class="product-name">Stabilo Marker Set</div>
+                <div class="product-price">
+                  <span class="old-price">Rp 75.000</span>
+                  Rp 55.000
+                </div>
+                <button class="btn btn-buy" data-bs-toggle="modal" data-bs-target="#orderModal" data-product="Stabilo Marker Set" data-price="55000">
+                  <i class="fas fa-shopping-cart me-1"></i> Beli Sekarang
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Produk 5 -->
+          <div class="col-md-4">
+            <div class="card product-card">
+              <div class="product-image product-5">
+                <span class="badge bg-primary">DISKON</span>
+              </div>
+              <div class="product-info">
+                <div class="product-name">Pensil Warna 24 Set</div>
+                <div class="product-price">
+                  <span class="old-price">Rp 60.000</span>
+                  Rp 42.000
+                </div>
+                <button class="btn btn-buy" data-bs-toggle="modal" data-bs-target="#orderModal" data-product="Pensil Warna 24 Set" data-price="42000">
+                  <i class="fas fa-shopping-cart me-1"></i> Beli Sekarang
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Produk 6 -->
+          <div class="col-md-4">
+            <div class="card product-card">
+              <div class="product-image product-6">
+                <span class="badge bg-secondary">POPULER</span>
+              </div>
+              <div class="product-info">
+                <div class="product-name">Map Plastik Berbagai Ukuran</div>
+                <div class="product-price">
+                  <span class="old-price">Rp 30.000</span>
+                  Rp 22.000
+                </div>
+                <button class="btn btn-buy" data-bs-toggle="modal" data-bs-target="#orderModal" data-product="Map Plastik Berbagai Ukuran" data-price="22000">
+                  <i class="fas fa-shopping-cart me-1"></i> Beli Sekarang
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Fitur Toko -->
+    <div class="features-section">
+      <h2 class="section-title">KENAPA HARUS BELANJA DI TOKO KAMI?</h2>
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-shipping-fast"></i>
+              </div>
+              <h3 class="feature-title">Gratis Ongkir</h3>
+              <p>Gratis ongkos kirim untuk pembelian di atas Rp 100.000</p>
+            </div>
+          </div>
+          
+          <div class="col-md-4">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-award"></i>
+              </div>
+              <h3 class="feature-title">Kualitas Terjamin</h3>
+              <p>Produk dengan kualitas terbaik dari brand ternama</p>
+            </div>
+          </div>
+          
+          <div class="col-md-4">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-headset"></i>
+              </div>
+              <h3 class="feature-title">Layanan 24/7</h3>
+              <p>Customer service siap melayani Anda kapan saja</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Call to Action -->
+    <div class="cta-section">
+      <h2 class="cta-title">JANGAN LEWATKAN PROMO SPESIAL INI!</h2>
+      <p class="mb-4">Promo berlaku hingga 30 Oktober 2025</p>
+      <button class="cta-button" data-bs-toggle="modal" data-bs-target="#contactModal">
+        <i class="fas fa-shopping-cart me-2"></i> BELI SEKARANG
+      </button>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+      <div class="contact-info">
+        <h3>TOKO ATK CEMERLANG</h3>
+        <p><i class="fas fa-map-marker-alt me-2"></i> Jl. Pendidikan No. 123, Bogor</p>
+        <p><i class="fas fa-phone me-2"></i> +62881-0254-57762</p>
+        <p><i class="fas fa-envelope me-2"></i> info@toko-atk-cemerlang.com</p>
+      </div>
+      
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+      </div>
+      
+      <p class="mt-3">&copy; 2025 Toko ATK Cemerlang. All Rights Reserved.</p>
+    </div>
+  </div>
+
+  <!-- Modal Pemesanan -->
+  <div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="orderModalLabel">Pesan Produk</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="orderForm">
+            <div class="mb-3">
+              <label for="productName" class="form-label">Produk</label>
+              <input type="text" class="form-control" id="productName" readonly>
+            </div>
+            <div class="mb-3">
+              <label for="productPrice" class="form-label">Harga</label>
+              <input type="text" class="form-control" id="productPrice" readonly>
+            </div>
+            <div class="mb-3">
+              <label for="quantity" class="form-label">Jumlah</label>
+              <input type="number" class="form-control" id="quantity" min="1" value="1" required>
+            </div>
+            <div class="mb-3">
+              <label for="customerName" class="form-label">Nama Lengkap</label>
+              <input type="text" class="form-control" id="customerName" required>
+            </div>
+            <div class="mb-3">
+              <label for="customerPhone" class="form-label">No. WhatsApp</label>
+              <input type="tel" class="form-control" id="customerPhone" required>
+            </div>
+            <div class="mb-3">
+              <label for="customerAddress" class="form-label">Alamat Pengiriman</label>
+              <textarea class="form-control" id="customerAddress" rows="3" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="notes" class="form-label">Catatan (opsional)</label>
+              <textarea class="form-control" id="notes" rows="2"></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="totalPrice" class="form-label">Total Harga</label>
+              <input type="text" class="form-control fw-bold text-success" id="totalPrice" readonly>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="button" class="btn btn-primary" id="sendOrder">Kirim Pesanan via WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Kontak -->
+  <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="contactModalLabel">Hubungi Kami</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Untuk informasi produk dan pemesanan, silakan hubungi kami melalui:</p>
+          <div class="d-grid gap-2">
+            <a href="https://wa.me/62881025457762?text=Halo%2C%20saya%20tertarik%20dengan%20produk%20Toko%20ATK%20Cemerlang.%20Bisa%20info%20lebih%20lanjut%3F" 
+               class="btn btn-success" target="_blank">
+              <i class="fab fa-whatsapp me-2"></i> WhatsApp
+            </a>
+            <a href="tel:+62881025457762" class="btn btn-primary">
+              <i class="fas fa-phone me-2"></i> Telepon
+            </a>
+            <a href="mailto:info@toko-atk-cemerlang.com" class="btn btn-info text-white">
+              <i class="fas fa-envelope me-2"></i> Email
+            </a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Variabel untuk menyimpan data produk yang dipilih
+      let selectedProduct = {
+        name: '',
+        price: 0
+      };
+      
+      // Event listener untuk tombol beli pada setiap produk
+      const buyButtons = document.querySelectorAll('.btn-buy');
+      buyButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          selectedProduct.name = this.getAttribute('data-product');
+          selectedProduct.price = parseInt(this.getAttribute('data-price'));
+          
+          // Isi form pemesanan dengan data produk
+          document.getElementById('productName').value = selectedProduct.name;
+          document.getElementById('productPrice').value = formatRupiah(selectedProduct.price);
+          updateTotalPrice();
+        });
+      });
+      
+      // Event listener untuk tombol CTA "Beli Sekarang"
+      document.querySelector('.cta-button').addEventListener('click', function() {
+        // Tidak ada produk spesifik yang dipilih, jadi kosongkan form
+        document.getElementById('productName').value = 'Berbagai Produk ATK';
+        document.getElementById('productPrice').value = 'Mulai Rp 18.000';
+        selectedProduct.name = 'Berbagai Produk ATK';
+        selectedProduct.price = 18000;
+        updateTotalPrice();
+      });
+      
+      // Update total harga ketika jumlah berubah
+      document.getElementById('quantity').addEventListener('input', updateTotalPrice);
+      
+      // Fungsi untuk mengupdate total harga
+      function updateTotalPrice() {
+        const quantity = parseInt(document.getElementById('quantity').value) || 1;
+        const total = selectedProduct.price * quantity;
+        document.getElementById('totalPrice').value = formatRupiah(total);
+      }
+      
+      // Fungsi untuk format angka ke Rupiah
+      function formatRupiah(angka) {
+        return 'Rp ' + angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+      }
+      
+      // Event listener untuk tombol kirim pesanan
+      document.getElementById('sendOrder').addEventListener('click', function() {
+        const productName = document.getElementById('productName').value;
+        const quantity = document.getElementById('quantity').value;
+        const customerName = document.getElementById('customerName').value;
+        const customerPhone = document.getElementById('customerPhone').value;
+        const customerAddress = document.getElementById('customerAddress').value;
+        const notes = document.getElementById('notes').value;
+        const totalPrice = document.getElementById('totalPrice').value;
+        
+        // Validasi form
+        if (!customerName || !customerPhone || !customerAddress) {
+          alert('Harap isi semua field yang wajib diisi!');
+          return;
+        }
+        
+        // Format pesan untuk WhatsApp
+        let message = `Halo, saya ingin memesan produk dari Toko ATK Cemerlang:%0A%0A`;
+        message += `*Produk:* ${productName}%0A`;
+        message += `*Jumlah:* ${quantity}%0A`;
+        message += `*Total Harga:* ${totalPrice}%0A%0A`;
+        message += `*Data Pemesan:*%0A`;
+        message += `- Nama: ${customerName}%0A`;
+        message += `- No. WhatsApp: ${customerPhone}%0A`;
+        message += `- Alamat: ${customerAddress}%0A`;
+        
+        if (notes) {
+          message += `- Catatan: ${notes}%0A`;
+        }
+        
+        message += `%0ASaya sudah membaca dan menyetujui syarat dan ketentuan yang berlaku.`;
+        
+        // Buka WhatsApp dengan pesan yang sudah diformat
+        const whatsappURL = `https://wa.me/62881025457762?text=${message}`;
+        window.open(whatsappURL, '_blank');
+        
+        // Tutup modal setelah mengirim pesan
+        const orderModal = bootstrap.Modal.getInstance(document.getElementById('orderModal'));
+        orderModal.hide();
+        
+        // Reset form
+        document.getElementById('orderForm').reset();
+        updateTotalPrice();
+      });
+      
+      // Inisialisasi total harga saat pertama kali load
+      updateTotalPrice();
+    });
+  </script>
+</body>
+</html>
